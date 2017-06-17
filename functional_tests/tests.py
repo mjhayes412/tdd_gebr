@@ -1,10 +1,10 @@
-import unittest
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from django.test import LiveServerTestCase
 
 
-class NewVistorTest(unittest.TestCase):
+class NewVistorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -18,9 +18,9 @@ class NewVistorTest(unittest.TestCase):
         self.assertIn(row_text, [row.text for row in rows])
 
     def test_starting_a_new_todo_list(self):
-        # Agatha has heard about the new gebr site
+        # Agatha has heard about the new GEBR site
         # She goes to its homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # She notices the page title and header mention Bulldog Rescue
         self.assertIn('Bulldog Rescue', self.browser.title)
@@ -66,7 +66,3 @@ class NewVistorTest(unittest.TestCase):
         # The page updates again, and now shows both items on her list
 
         # Satisfied, she goes back to sleep
-
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
