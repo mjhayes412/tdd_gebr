@@ -16,7 +16,7 @@ class NewVistorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         # She notices the page title and header mention bulldogrescue
-        self.assertIn('bulldogrescue', self.browser.title)
+        self.assertIn('Bulldog Rescue', self.browser.title)
 
         # Satisfied, she goes back to sleep
 
