@@ -1,0 +1,11 @@
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+    min-height: 100px;
+}
+
+.navbar-default .navbar-brand {
+    padding: 0px;
+}
+
+#id_new_item {
+    margin-top: 2ex;
+}
