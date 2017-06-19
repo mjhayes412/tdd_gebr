@@ -71,9 +71,9 @@ class NewVistorTest(LiveServerTestCase):
         # Agatha starts a new to-do list
         self.browser.get(self.live_server_url)
         inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox.send_keys('Buy peacock feathers')
+        inputbox.send_keys('Look for food')
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: Buy peacock feathers')
+        self.wait_for_row_in_list_table('1: Look for food')
 
         # She notices that her list has a unique URL
         Agatha_list_url = self.browser.current_url
@@ -90,15 +90,15 @@ class NewVistorTest(LiveServerTestCase):
         # list
         self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.assertNotIn('Buy peacock feathers', page_text)
-        self.assertNotIn('make a fly', page_text)
+        self.assertNotIn('Look for food', page_text)
+        self.assertNotIn('bowl and wait', page_text)
 
         # Bruno starts a new list by entering a new item. He
         # is less interesting than Agatha...
         inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox.send_keys('Buy milk')
+        inputbox.send_keys('Take a nap')
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: Buy milk')
+        self.wait_for_row_in_list_table('1: Take a nap')
 
         # Bruno gets his own unique URL
         Bruno_list_url = self.browser.current_url
@@ -107,7 +107,7 @@ class NewVistorTest(LiveServerTestCase):
 
         # Again, there is no trace of Agatha's list
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.assertNotIn('Buy peacock feathers', page_text)
-        self.assertIn('Buy milk', page_text)
+        self.assertNotIn('Look for food', page_text)
+        self.assertIn('Take a nap', page_text)
 
         # Satisfied, they both go back to sleep
