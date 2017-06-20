@@ -25,7 +25,7 @@ SECRET_KEY = '72k*6zw*3v_anm!-nos$03m=j1ngnk-g_!2ark5h%$sh!_j1b%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.131.183.100', 'hayesmage.com']
+ALLOWED_HOSTS = ['localhost', '104.131.183.100', 'hayesmage.com']
 
 
 # Application definition
