@@ -8,3 +8,4 @@ pytz==2017.2
 selenium==3.4.3
 six==1.10.0
 stevedore==1.23.0
+gunicorn==19.7.1
