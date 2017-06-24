@@ -1,9 +1,9 @@
 test:
 	python manage.py test
+unittest:
+	python manage.py test lists
 clean:
 	find . -type f -name '*.pyc' -delete
-test_lists:
-	python manage.py test lists
 migrations:
 	python manage.py makemigrations
 migrate:
