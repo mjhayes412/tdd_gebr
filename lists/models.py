@@ -8,7 +8,7 @@ class List(models.Model):
 
 
 class Item(models.Model):
-    text = models.TextField(default='')
+    text = models.CharField(default='', max_length=255)
     list = models.ForeignKey(List, default=None)
 
     class Meta:
