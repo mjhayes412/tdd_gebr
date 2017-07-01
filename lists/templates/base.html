@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img alt="Georgia English Bulldog Rescue" src="/static/gebr.jpg">
+                    <img class="gebr-logo" alt="Georgia English Bulldog Rescue" src="/static/gebr.jpg">
                 </a>
             </div>
 
@@ -51,17 +51,18 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <p>Logged in as {{ user.email}}</p>
+                        <p><a id="id_logout" href="{% url 'logout' %}">Log out</a></p>
                     </li>
+                    {% else %}
+                    <li>
+                        <form method="POST" action="{% url 'send_login_email' %}">
+                            Enter email to log in: <input name="email" type="text" /> {% csrf_token %}
+                        </form>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
