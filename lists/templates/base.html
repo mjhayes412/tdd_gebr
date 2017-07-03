@@ -59,7 +59,7 @@
                     </li>
                     {% else %}
                     <li>
-                        <form method="POST" action="{% url 'send_login_email' %}">
+                        <form method="POST" action="{% url 'send_login_email' %}" class="navbar-form navbar-right">
                             Enter email to log in: <input name="email" type="text" /> {% csrf_token %}
                         </form>
                     </li>
@@ -70,6 +70,19 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    {% if messages %}
+        <div class="row">
+          <div class="col-md-8">
+            {% for message in messages %}
+              {% if message.level_tag == 'success' %}
+                <div class="alert alert-success">{{ message }}</div>
+              {% else %}
+                <div class="alert alert-warning">{{ message }}</div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     <div class="container">
 
         <div class="row">
