@@ -5,13 +5,13 @@ import re
 from .base import FunctionalTest
 
 TEST_EMAIL = 'agatha@example.com'
-SUBJECT = 'Your login link for Superlists'
+SUBJECT = 'Your login link for gebr'
 
 
 class LoginTest(FunctionalTest):
 
     def test_can_get_email_link_to_log_in(self):
-        # Agatha goes to the awesome superlists site
+        # Agatha goes to the awesome gebr site
         # and notices a "Log in" section in the navbar for the first time
         # It's telling her to enter her email address, so she does
         self.browser.get(self.live_server_url)

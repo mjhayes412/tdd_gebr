@@ -15,7 +15,7 @@ def send_login_email(request):
     )
     message_body = f'Use this link to log in:\n\n{url}'
     send_mail(
-        'Your login link for Superlists',
+        'Your login link for gebr',
         message_body,
         'noreply@gebr',
         [email]
@@ -28,7 +28,9 @@ def send_login_email(request):
 
 
 def login(request):
-    auth.authenticate(uid=request.GET.get('token'))
+    user = auth.authenticate(uid=request.GET.get('token'))
+    if user:
+        auth.login(request, user)
     return redirect('/')
 
 
